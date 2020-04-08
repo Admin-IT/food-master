@@ -14,7 +14,7 @@ import java.util.List;
 
 public interface FoodService {
 
-    List<Food> listFood();
+    List<Food> listFood(Integer pageNum, Integer pageSize);
 
     void delFoodById(Food food);
 

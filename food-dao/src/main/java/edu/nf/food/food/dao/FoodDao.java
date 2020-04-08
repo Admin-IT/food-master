@@ -2,6 +2,7 @@ package edu.nf.food.food.dao;
 
 import edu.nf.food.food.entity.Food;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -14,7 +15,7 @@ import java.util.List;
 @Mapper
 public interface FoodDao {
 
-    List<Food> listFood();
+    List<Food> listFood(@Param("pageNum") Integer pageNum, @Param("pageSize") Integer pageSize);
 
     void delFoodById(Food food);
 
