@@ -541,17 +541,17 @@
     <!-- START CONTENT -->
     <section id="main-content" class=" ">
         <div class='col-xs-12'>
-            <div class="page-title">
+<!--            <div class="page-title">-->
 
-                <div class="pull-left">
-                    <!-- PAGE HEADING TAG - START -->
-                    <h1 class="title">定格</h1>
-                    <!-- PAGE HEADING TAG - END -->
-                </div>
+<!--                <div class="pull-left">-->
+<!--                    &lt;!&ndash; PAGE HEADING TAG - START &ndash;&gt;-->
+<!--                    <h1 class="title">定格</h1>-->
+<!--                    &lt;!&ndash; PAGE HEADING TAG - END &ndash;&gt;-->
+<!--                </div>-->
 
-                <div class="pull-right hidden-xs">
+<!--                <div class="pull-right hidden-xs">-->
 
-                </div>
+<!--                </div>-->
             </div>
             <!--			容器-->
             <div class="col-lg-12">
@@ -562,56 +562,78 @@
                         </div>
                         <div class="content-body">
                             <form id="f_user_add" action="javascript:;" novalidate="novalidate">
-                                <div class="row">
 
-                                    <div class="">
-
-                                        <div class="form-group col-xs-3">
-                                            <label class="form-label">文章ID</label>
-                                            <span class="desc"></span>
-                                            <div class="controls">
-                                                <input type="text" class="form-control" name="food_id">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group col-xs-8">
-                                            <label class="form-label">审核状态</label>
-                                            <span class="desc">当前菜谱的审核是否通过</span>
-                                            <div class="controls">
-                                                <input type="text" class="form-control" name="food_state">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group col-xs-4">
-                                            <label class="form-label">审核人</label>
-                                            <span class="desc">审核当前菜谱的工作人员ID</span>
-                                            <div class="controls">
-                                                <input type="text" class="form-control" name="food_admin">
-                                            </div>
-                                        </div>
+                                <table class="table table-hover" id="all_list">
+                                    <colgroup>
+                                        <col width="150">
+                                        <col width="200">
+                                        <col>
+                                    </colgroup>
+                                    <thead>
+                                    <tr>
+                                        <th>序号</th>
+                                        <th>菜谱ID</th>
+                                        <th>上传时间</th>
+                                        <th>状态</th>
+                                        <th>操作</th>
+                                        <th>审核人</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="tbodys">
 
 
-                                        <div class="form-group col-xs-8">
-                                            <label class="form-label">审核时间</label>
-                                            <span class="desc">当前菜谱的上一次审核时间（如未审核默认为1000-01-01）</span>
-                                            <div class="controls">
-                                                <input type="text" class="form-control" name="food_time">
-                                            </div>
-                                        </div>
+                                    </tbody>
+                                </table>
 
-                                    </div>
-                                    <div class="col-md-1 btn-block">
-                                        <button type="submit">提交</button>
-                                        <button type="reset">重置</button>
-                                    </div>
-                                </div>
+<!--                                <div class="row">-->
+
+<!--                                    <div class="">-->
+
+<!--                                        <div class="form-group col-xs-3">-->
+<!--                                            <label class="form-label">文章ID</label>-->
+<!--                                            <span class="desc"></span>-->
+<!--                                            <div class="controls">-->
+<!--                                                <input type="text" class="form-control" name="food_id">-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+
+<!--                                        <div class="form-group col-xs-8">-->
+<!--                                            <label class="form-label">审核状态</label>-->
+<!--                                            <span class="desc">当前菜谱的审核是否通过</span>-->
+<!--                                            <div class="controls">-->
+<!--                                                <input type="text" class="form-control" name="food_state">-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+
+<!--                                        <div class="form-group col-xs-4">-->
+<!--                                            <label class="form-label">审核人</label>-->
+<!--                                            <span class="desc">审核当前菜谱的工作人员ID</span>-->
+<!--                                            <div class="controls">-->
+<!--                                                <input type="text" class="form-control" name="food_admin">-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+
+
+<!--                                        <div class="form-group col-xs-8">-->
+<!--                                            <label class="form-label">审核时间</label>-->
+<!--                                            <span class="desc">当前菜谱的上一次审核时间（如未审核默认为1000-01-01）</span>-->
+<!--                                            <div class="controls">-->
+<!--                                                <input type="text" class="form-control" name="food_time">-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+
+<!--                                    </div>-->
+<!--                                    <div class="col-md-1 btn-block">-->
+<!--                                        <button type="submit">提交</button>-->
+<!--                                        <button type="reset">重置</button>-->
+<!--                                    </div>-->
+<!--                                </div>-->
                             </form>
                         </div>
                     </header>
                 </section>
             </div>
 
-        </div>
     </section>
     <!-- END CONTENT -->
 

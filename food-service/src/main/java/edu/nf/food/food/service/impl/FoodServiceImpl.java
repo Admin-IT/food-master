@@ -29,9 +29,9 @@ public class FoodServiceImpl implements FoodService {
      * @return
      */
     @Override
-    public List<Food> listFood() {
+    public List<Food> listFood(Integer pageNum, Integer pageSize) {
         try {
-            List<Food> list = foodDao.listFood();
+            List<Food> list = foodDao.listFood(pageNum, pageSize);
             return list;
         } catch (Exception e) {
             throw new FoodException("获取菜谱异常：" + e);
