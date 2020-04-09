@@ -608,62 +608,7 @@
 <script src="js/scripts.js"></script>
 <!-- END CORE TEMPLATE JS - END -->
 <script>
-    $(document).ready(function () {
-        $('#table_video').DataTable({
-            language: {
-                "lengthMenu": '每页显示<select>' + '<option value="10">10</option>'
-                    + '<option value="20">20</option>'
-                    + '<option value="30">30</option>'
-                    + '<option value="40">40</option>'
-                    + '<option value="50">50</option>' + '</select>条',
-                "oPaginate": {
-                    "sFirst": "首页",
-                    "sPrevious": "上一页",
-                    "sNext": "下一页",
-                    "sLast": "末页"
-                },
-                "processing": "加载中...",  //DataTables载入数据时，是否显示‘进度’提示
-                "info": "共 _PAGES_ 页  _TOTAL_ 条数据  ",
-                'sPaginationType': "full_numbers", //详细分页组，可以支持直接跳转到某页
-                "infoEmpty": "暂无数据",
-                "sLengthMenu": "显示_MENU_条 ",
-                "emptyTable": "暂无要处理的数据...",  //表格中无数据
-                "search": "搜索:",
-                "infoFiltered": " —— 从  _MAX_ 条数据中筛选",
-                "zeroRecords": "暂未查询到相关信息"
-            },
-            "ajax": {
-                url: "../list_employee",
-                type: "GET", dataSrc: function (result) {
-                    if (result.code === 500) {
-                        $("#new").append(
-                            //占据整个屏幕Div
-                            "<div id='fullScreen'></div>" +
-                            //浮层区
-                            "<div id='message-floatLayer'> <p class='big-font'>提示消息</p> <p class='small-font'>" + result.message + "</p>" +
-                            "<input id='hide3' type='button' class='btn-round btn-primary col-xs-3' value='关闭'>" +
-                            "</div>"
-                        );
-                        $("#hide3").click(function () {
-                            $("#fullScreen,#message-floatLayer").remove();
-                        });
-                    }
-                    console.log(result.data);
-                    return result.data;
-                }
-            },
-            "columns": [{'data': 'emId'},
-                {'data': 'username'},
-                {'data': 'emSex'},
-                {'data': 'emIdentityCard'},
-                {'data': 'emPosition'},
-                {'data': 'emNumber'},
-                {'data': 'emAddress'},
-                {'data': 'emGrade'},
-                {'data': 'emGradeStatus'}
-            ]
-        });
-    });
+
 </script>
 </body>
 
