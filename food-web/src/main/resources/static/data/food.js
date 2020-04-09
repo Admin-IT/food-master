@@ -35,6 +35,8 @@ function addTable(pageInfo) {
             '<td>' + obj.foodCuisine + '</td>' +
             '<td>' + obj.foodClassified + '</td>' +
             '<td>' + obj.userId + '</td>' +
+            '<td><button name="select-btn" class="btn btn-info select-btn btnstep" value="" data-step="' + obj.foodId + '">步骤</button></td>' +
+            '<td><img src="images/1/2.png" style="width:100px;height:100px;"></td>' +
             '<td><button name="select-btn" class="btn btn-info select-btn btnLook" value="" data-id="' + obj.foodId + '">查看详情</button></td>' +
             '</tr>'
         );
