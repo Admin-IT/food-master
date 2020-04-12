@@ -3,7 +3,7 @@ spring:
   # 数据源配置
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://rm-2zebhr6xk778lbo75ko.mysql.rds.aliyuncs.com:3306/food?serverTimezone=GMT&useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://rm-2zebhr6xk778lbo75ko.mysql.rds.aliyuncs.com:3306/youpu?serverTimezone=GMT&useUnicode=true&characterEncoding=utf-8
     username: food
     password: Ljf13411479616
     # 使用druid连接池，当使用其他连接池的时候，可以指定type类型为对应的数据源
@@ -29,7 +29,7 @@ spring:
         allow: 127.0.0.1
       web-stat-filter:
         url-pattern: /*
-        exclusions: /druid/*,*.js,*.css,*.html,*.png,*.jpg
+        exclusions: /druid/*,*.js,*.css,*.html,*.png,*.jpg,*.mp4
     thymeleaf:
       prefix: /templates/**
       suffix: .html
@@ -40,10 +40,12 @@ mybatis:
     - edu.nf.food.label.entity
     - edu.nf.food.food.entity
     - edu.nf.food.user.entity
+    - edu.nf.food.video.entity
   mapper-locations:
     - classpath:/mapper/Label/*.xml
     - classpath:/mapper/Food/*.xml
     - classpath:/mapper/User/*.xml
+    - classpath:/mapper/Video/*.xml
 # 分页插件配置
 pagehelper:
   # 数据库方言

@@ -8,6 +8,7 @@
     <title>视频添加 </title>
     <meta content="" name="description"/>
     <meta content="" name="author"/>
+    <meta http-equiv="Content-Type" content="multipart/form-data; charset=utf-8"/>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon"/>
@@ -561,58 +562,50 @@
                             <h2>菜谱视频添加</h2>
                         </div>
                         <div class="content-body">
-                            <form id="f_user_add" action="javascript:;" novalidate="novalidate">
+                            <form id="f_user_add" action="add_video" method="post" enctype="multipart/form-data">
                                 <div class="row">
-
                                     <div class="">
-
                                         <div class="form-group col-xs-3">
-                                            <label class="form-label">标题</label>
-                                            <span class="desc">由4-8位字母+数字组成</span>
+                                            <label class="form-label">播放量</label>
                                             <div class="controls">
-                                                <input type="text" class="form-control" name="video_name">
+                                                <input type="text" class="form-control" name="number">
                                             </div>
                                         </div>
-
                                         <div class="form-group col-xs-5">
                                             <label class="form-label">分类</label>
                                             <span class="desc">请选择或输入相关类型</span>
                                             <div class="controls col-md-8">
-                                                <input type="text" class="form-control" name="video_classified "/>
+                                                <input type="text" class="form-control" name="classified"/>
                                             </div>
                                         </div>
                                         <div class="form-group col-xs-4">
                                             <label class="form-label">视频</label>
                                             <span class="desc">请选择您需要上传的视频</span>
                                             <div class="controls">
-                                                <input type="file" class="form-control" name="video_source">
+                                                <input id="f" type="file" class="form-control" name="file">
                                             </div>
                                         </div>
-
                                         <div class="form-group col-xs-4">
                                             <label class="form-label">作者编号</label>
                                             <span class="desc">例如:''</span>
                                             <div class="controls">
-                                                <input type="text" class="form-control" name="video_admin">
+                                                <input type="text" class="form-control" name="userId">
                                             </div>
                                         </div>
-
                                         <div class="form-group col-xs-3">
                                             <label class="form-label">上传时间</label>
                                             <span class="desc">默认为当前日期时间</span>
                                             <div class="controls">
-                                                <input type="date" class="form-control" name="video_time">
+                                                <input type="date" class="form-control" name="time">
                                             </div>
                                         </div>
-
                                         <div class="form-group col-xs-8">
                                             <label class="form-label">标签</label>
                                             <span class="desc">选择已存在标签或是自定义新的标签</span>
                                             <div class="controls">
-                                                <input type="text" class="form-control" name="video_label">
+                                                <input type="text" class="form-control" name="label">
                                             </div>
                                         </div>
-
                                     </div>
                                     <div class="col-md-1 btn-block">
                                         <button type="submit">提交</button>

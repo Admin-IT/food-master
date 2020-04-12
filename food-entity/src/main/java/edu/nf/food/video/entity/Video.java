@@ -16,6 +16,6 @@ public class Video {
     private String label;//视频标签
     private String classified;//视频分类
     private Integer userId;//上传者
-    private Date time;//上传时间
+    private String time;//上传时间
     private String number;//播放量
 }
