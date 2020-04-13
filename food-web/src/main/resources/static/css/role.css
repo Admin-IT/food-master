@@ -1,0 +1,62 @@
+.pop {
+    display: flex;
+    position: fixed;
+    width: 300px;
+    height: 420px;
+    top: 18%;
+    left: 43%;
+    flex-direction: column;
+    border-radius: 8px;
+    color: #6fc334;
+    /*color: #f25d8e;*/
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 1px solid #c6d8f2;
+
+}
+
+.up_div {
+    display: block;
+    margin: 20px 0px 0px 20px;
+}
+
+.btn_div {
+    display: block;
+    margin: 20px 0px 0px 20px;
+    margin: auto;
+}
+
+#add_pop {
+    height: 400px;
+    color: #FFFFFD;
+    background: linear-gradient(to bottom, #4887D0, #7A68B4);
+}
+
+#up {
+    height: 460px;
+    color: #FFFFFD;
+    background: linear-gradient(to bottom, #4887D0, #7A68B4);
+}
+
+input {
+    color: #3c3c3c;
+}
+
+select {
+    color: #3c3c3c;
+}
+
+.pop_message {
+    display: flex;
+    position: fixed;
+    width: 200px;
+    height: 100px;
+    top: 22%;
+    left: 43%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    color: #6fc334;
+    /*color: #f25d8e;*/
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 1px solid #c6d8f2;
+}

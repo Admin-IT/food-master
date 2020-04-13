@@ -22,7 +22,8 @@
 
     <!-- CORE CSS TEMPLATE - START -->
     <link href="css/style.css" rel="stylesheet" type="text/css"/>
-
+    <link href="css/home.css" rel="stylesheet" type="text/css"/>
+    <link href="css/loginAdmin.css" rel="stylesheet" type="text/css"/>
 </head>
 <body class=" ">
 <!-- START TOPBAR -->
@@ -142,7 +143,7 @@
                     </a>
                     <ul class="sub-menu">
                         <li>
-                            <a class="" href="permission-assignment.html">权限分配</a>
+                            <a class="" id="role" href="permission-assignment.html">权限分配</a>
                         </li>
                         <li>
                             <a class="" href="xxx.html">权限总览</a>
@@ -557,6 +558,8 @@
             <div class="col-lg-12">
                 <section class="box ">
                     <header class="panel_header">
+
+
                         <!--										具体内容-->
 
                         <!--
@@ -602,8 +605,23 @@
     </section>
     <!-- END CONTENT -->
 
+    <div class="pop_shade">
+        <div class="loginFrm">
+            <div>
+                账号：<input class="inputText" type="text" placeholder="请输入账号" id="administratorAccount"/>
+            </div>
+            <div>
+                密码：<input class="inputText" type="password" placeholder="请输入密码" id="administratorPassword"/>
+            </div>
+            <div id="login_test" style="cursor: pointer ">
+                login
+            </div>
+        </div>
+        <div class="pop" style="display: none"></div>
+    </div>
 
 </div>
+
 <!-- END CONTAINER -->
 <!-- LOAD FILES AT PAGE END FOR FASTER LOADING -->
 
@@ -626,6 +644,8 @@
 <!-- CORE TEMPLATE JS - START -->
 <script src="js/scripts.js"></script>
 <!-- END CORE TEMPLATE JS - END -->
+
+<script src="js/home.js"></script>
 
 </body>
 

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.nf.food.user.dao.AdministratorDao">
+
+    <resultMap id="administratorMap" type="edu.nf.food.user.entity.Administrator">
+        <id property="administratorId" column="menu_administrator_id"/>
+        <result property="administratorAccount" column="menu_administrator_account"/>
+        <result property="administratorPassword" column="menu_administrator_password"/>
+        <result property="administratorName" column="menu_administrator_name"/>
+        <result property="administratorSex" column="menu_administrator_sex"/>
+        <result property="administratorEmail" column="menu_administrator_email"/>
+        <result property="administratorTel" column="menu_administrator_tel"/>
+        <result property="administratorImage" column="menu_administrator_image"/>
+        <association property="role" resultMap="roleMap"/>
+    </resultMap>
+
+    <resultMap id="roleMap" type="edu.nf.food.user.entity.Role">
+        <id property="roleId" column="menu_role_id"/>
+        <result property="roleAuthority" column="menu_role_authority"/>
+    </resultMap>
+
+    <select id="listAdministrator" resultMap="administratorMap">
+        select
+        a.menu_administrator_id, a.menu_administrator_account, a.menu_administrator_password,
+        a.menu_administrator_name, a.menu_administrator_sex, a.menu_administrator_email,
+        a.menu_administrator_tel, a.menu_administrator_image, r.menu_role_id, r.menu_role_authority
+        from menu_administrator as a
+        left join menu_administrator_role as ar on a.menu_administrator_id = ar.menu_administrator_id
+        left join menu_role as r on ar.menu_role_id = r.menu_role_id
+    </select>
+
+    <update id="upAdministratorById" parameterType="edu.nf.food.user.entity.Administrator">
+        update menu_administrator
+        set
+         menu_administrator_account = #{administratorAccount},
+         menu_administrator_password = #{administratorPassword},
+         menu_administrator_name = #{administratorName},
+         menu_administrator_sex = #{administratorSex},
+         menu_administrator_email = #{administratorEmail},
+         menu_administrator_tel = #{administratorTel},
+         menu_administrator_image = #{administratorImage}
+        where menu_administrator_id = #{administratorId}
+    </update>
+
+    <insert id="addAdministrator" parameterType="edu.nf.food.user.entity.Administrator">
+        insert into menu_administrator
+         (menu_administrator_account, menu_administrator_password, menu_administrator_name,
+         menu_administrator_sex, menu_administrator_email,menu_administrator_tel, menu_administrator_image)
+        values
+         (#{administratorAccount}, #{administratorPassword}, #{administratorName}, #{administratorSex}, #{administratorEmail}, #{administratorTel},
+         #{administratorImage})
+    </insert>
+
+    <select id="loginAdministrator" parameterType="edu.nf.food.user.entity.Administrator" resultMap="administratorMap">
+        select
+        a.menu_administrator_id, a.menu_administrator_account, a.menu_administrator_password,
+        a.menu_administrator_name, a.menu_administrator_sex, a.menu_administrator_email,
+        a.menu_administrator_tel, a.menu_administrator_image, r.menu_role_id, r.menu_role_authority
+        from menu_administrator as a
+        left join menu_administrator_role as ar on a.menu_administrator_id = ar.menu_administrator_id
+        left join menu_role as r on ar.menu_role_id = r.menu_role_id
+        where a.menu_administrator_account = #{administratorAccount} and a.menu_administrator_password = #{administratorPassword}
+    </select>
+
+    <select id="selectAdministratorById" parameterType="edu.nf.food.user.entity.Administrator"
+            resultMap="administratorMap">
+        select
+        a.menu_administrator_id, a.menu_administrator_account, a.menu_administrator_password,
+        a.menu_administrator_name, a.menu_administrator_sex, a.menu_administrator_email,
+        a.menu_administrator_tel, a.menu_administrator_image, r.menu_role_id, r.menu_role_authority
+        from menu_administrator as a
+        left join menu_administrator_role as ar on a.menu_administrator_id = ar.menu_administrator_id
+        left join menu_role as r on ar.menu_role_id = r.menu_role_id
+        where a.menu_administrator_id = #{administratorId}
+    </select>
+</mapper>
+

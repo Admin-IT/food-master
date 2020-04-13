@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.nf.food.user.dao.RoleDao">
+
+    <resultMap id="roleMap" type="edu.nf.food.user.entity.Role">
+        <id property="roleId" column="menu_role_id"/>
+        <result property="roleAuthority" column="menu_role_authority"/>
+    </resultMap>
+
+    <select id="listRole" resultMap="roleMap">
+        select menu_role_id, menu_role_authority from menu_role
+    </select>
+
+    <delete id="delRoleById" parameterType="edu.nf.food.user.entity.Role">
+        delete from menu_role where menu_role_id = #{roleId}
+    </delete>
+
+    <update id="upRoleById">
+        update menu_administrator_role set menu_administrator_id =  #{administrator.administratorId},  menu_role_id = (select menu_role_id from menu_role where menu_role_authority = #{role.roleAuthority})
+        where menu_administrator_id = #{administrator.administratorId}
+    </update>
+
+    <insert id="addRole" parameterType="edu.nf.food.user.entity.User">
+        insert into menu_role
+         (menu_role_authority)
+        values
+         (#{roleAuthority})
+    </insert>
+
+    <insert id="authorityRole">
+         insert into menu_administrator_role
+         (menu_administrator_id, menu_role_id)
+        values
+         ((select menu_administrator_id from menu_administrator where menu_administrator_account = #{administrator.administratorAccount}), (select menu_role_id from menu_role where menu_role_authority = #{role.roleAuthority}))
+    </insert>
+
+</mapper>
+

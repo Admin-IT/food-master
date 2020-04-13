@@ -376,13 +376,38 @@ create table menu_examine_food
 -- 角色表
 create table menu_role
 (
-  
+  menu_role_id int not null AUTO_INCREMENT, -- 角色ID
+	menu_role_authority varchar(20), -- 角色权限
+	PRIMARY KEY (menu_role_id)
+);
+
+-- 管理员角色中间表
+create table menu_administrator_role
+(
+	menu_administrator_role_id int not null AUTO_INCREMENT, -- 中间表ID
+	menu_administrator_id int, -- 管理员ID
+	menu_role_id int, -- 角色ID
+	PRIMARY KEY (menu_administrator_role_id)
+);
+
+-- 管理员表
+create table menu_administrator
+(
+    menu_administrator_id int not null AUTO_INCREMENT, -- 管理员ID
+    menu_administrator_account varchar(20) , -- 账号
+    menu_administrator_password varchar(20) , -- 密码
+    menu_administrator_name varchar(50) , -- 管理员名
+    menu_administrator_sex enum('男','女') , -- 性别
+    menu_administrator_email varchar(40) , -- 邮箱
+    menu_administrator_tel varchar(20) , -- 手机号码
+    menu_administrator_image varchar(100) , -- 头像图片URL
+    PRIMARY KEY (menu_administrator_id)
 );
 
 -- 资源表
 create table menu_module
 (
-  
+
 );
 
 
@@ -426,7 +451,9 @@ alter table menu_video_step AUTO_INCREMENT=100001
 alter table menu_message_push AUTO_INCREMENT=100001
 alter table menu_examine_article AUTO_INCREMENT=100001
 alter table menu_examine_food AUTO_INCREMENT=100001
-
+alter table menu_role AUTO_INCREMENT=100001
+alter table menu_administrator AUTO_INCREMENT=100001
+alter table menu_administrator_role AUTO_INCREMENT=100001
 
 
 

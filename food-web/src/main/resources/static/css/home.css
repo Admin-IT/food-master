@@ -1,0 +1,16 @@
+.pop {
+      display: flex;
+      position: fixed;
+      width: 200px;
+      height: 100px;
+      top: 22%;
+      left: 43%;
+      justify-content: center;
+      align-items: center;
+      border-radius: 8px;
+      color: #6fc334;
+      /*color: #f25d8e;*/
+      background-color: rgba(255, 255, 255, 0.6);
+      border: 1px solid #c6d8f2;
+}
+

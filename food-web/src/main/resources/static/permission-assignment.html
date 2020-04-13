@@ -22,7 +22,7 @@
 
     <!-- CORE CSS TEMPLATE - START -->
     <link href="css/style.css" rel="stylesheet" type="text/css"/>
-
+    <link href="css/role.css" rel="stylesheet" type="text/css"/>
 </head>
 <body class=" ">
 <!-- START TOPBAR -->
@@ -557,43 +557,17 @@
                 <!-- 在这里写入其他元素 -->
                 <div class="col-md-12 col-sm-8 col-xs-12">
                     <div class="page-title">
-                        <h2 class="title">角色管理</h2>
+                        <h2 class="title">角色</h2>
                         <button class="btn btn-primary">刷新</button>
-                        <button class="btn btn-primary">新增</button>
+                        <button class="btn btn-primary" id="addAdmin">新增</button>
                         <div class="mail_content">
                             <table class="table table-bordered table-striped table-hover">
                                 <thead>
-                                <th>角色名</th>
-                                <th class="">角色描述</th>
+                                <th>管理员</th>
+                                <th class="">任务描述</th>
                                 <th>操作</th>
                                 </thead>
-                                <tbody>
-                                <tr>
-                                    <td>xxx</td>
-                                    <td>xxxxx</td>
-                                    <td>
-                                        <button class="btn btn-primary">查看</button>
-                                        <span>|</span>
-                                        <button class="btn btn-primary">修改信息</button>
-                                        <span>|</span>
-                                        <button class="btn btn-primary">分配资源</button>
-                                        <span>|</span>
-                                        <button class="btn btn-primary">刷新</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>xxx</td>
-                                    <td>xxxxx</td>
-                                    <td>
-                                        <button class="btn btn-primary">查看</button>
-                                        <span>|</span>
-                                        <button class="btn btn-primary">修改信息</button>
-                                        <span>|</span>
-                                        <button class="btn btn-primary">分配资源</button>
-                                        <span>|</span>
-                                        <button class="btn btn-primary">刷新</button>
-                                    </td>
-                                </tr>
+                                <tbody id="administrator">
                                 <tr>
                                     <td>xxx</td>
                                     <td>xxxxx</td>
@@ -718,6 +692,47 @@
         </div>
     </section>
 </div>
+<div class="pop" id="up">
+    <div class="up_div">编号：<input type="text" class="adminInfo_up" id="up_id"/></div>
+    <div class="up_div">姓名：<input type="text" class="adminInfo_up" id="up_name"/></div>
+    <div class="up_div">性别：<input type="text" class="adminInfo_up" id="up_sex"/></div>
+    <div class="up_div">账号：<input type="text" class="adminInfo_up" id="up_account"/></div>
+    <div class="up_div">密码：<input type="text" class="adminInfo_up" id="up_password"/></div>
+    <div class="up_div">邮箱：<input type="text" class="adminInfo_up" id="up_email"/></div>
+    <div class="up_div">电话：<input type="text" class="adminInfo_up" id="up_tel"/></div>
+    <div class="up_div">角色：
+        <select id="up_role">
+            <option selected="selected">请选择</option>
+            <option value="超级管理员">超级管理员</option>
+            <option value="管理员">管理员</option>
+        </select>
+    </div>
+    <div class="btn_div">
+        <button class="btn btn-default" id="up_data" style="margin-right: 30px;">提交</button>
+        <button class="btn btn-default" id="up_close">取消</button>
+    </div>
+</div>
+
+<div class="pop" id="add_pop">
+    <div class="up_div">姓名：<input type="text" class="adminInfo_add" id="add_name"/></div>
+    <div class="up_div">性别：<input type="text" class="adminInfo_add" id="add_sex"/></div>
+    <div class="up_div">账号：<input type="text" class="adminInfo_add" id="add_account"/></div>
+    <div class="up_div">密码：<input type="text" class="adminInfo_add" id="add_password"/></div>
+    <div class="up_div">邮箱：<input type="text" class="adminInfo_add" id="add_email"/></div>
+    <div class="up_div">电话：<input type="text" class="adminInfo_add" id="add_tel"/></div>
+    <div class="up_div">角色：
+        <select id="add_role">
+            <option selected="selected">请选择</option>
+            <option value="超级管理员">超级管理员</option>
+            <option value="管理员">管理员</option>
+        </select>
+    </div>
+    <div class="btn_div">
+        <button class="btn btn-default" id="add_data" style="margin-right: 30px;">提交</button>
+        <button class="btn btn-default" id="add_close">取消</button>
+    </div>
+    <div class="pop_message" style="display: none"></div>
+</div>
 <!-- END CONTENT -->
 
 
@@ -744,7 +759,7 @@
 <!-- CORE TEMPLATE JS - START -->
 <script src="js/scripts.js"></script>
 <!-- END CORE TEMPLATE JS - END -->
-
+<script src="js/role.js"></script>
 </body>
 
 </html>
