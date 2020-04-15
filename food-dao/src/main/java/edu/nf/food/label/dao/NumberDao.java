@@ -2,6 +2,7 @@ package edu.nf.food.label.dao;
 
 import edu.nf.food.label.entity.Number;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -11,7 +12,11 @@ import java.util.List;
  */
 @Mapper
 public interface NumberDao {
-    List<Number> listNumber();
+    List<Number> listNumber(@Param("pageNum") Integer pageNum, @Param("pageSize") Integer pageSize);
+
+    Number acquireNumber(Integer id);
+
+    void updateNumber(Number number);
 
     void addNumber(Number number);
 

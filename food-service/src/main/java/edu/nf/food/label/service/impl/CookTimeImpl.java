@@ -4,7 +4,6 @@ import edu.nf.food.label.dao.CookTimeDao;
 import edu.nf.food.label.entity.CookTime;
 import edu.nf.food.label.service.CookTimeService;
 import edu.nf.food.label.service.exception.LabelException;
-import edu.nf.food.label.dao.CookTimeDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,9 +19,27 @@ public class CookTimeImpl implements CookTimeService {
     private CookTimeDao dao;
 
     @Override
-    public List<CookTime> listCookTime() {
+    public List<CookTime> listCookTime(Integer pageNum, Integer pageSize) {
         try {
-            return dao.listCookTime();
+            return dao.listCookTime(pageNum, pageSize);
+        } catch (Exception e) {
+            throw new LabelException("数据库错误");
+        }
+    }
+
+    @Override
+    public CookTime acquireCoolTime(Integer id) {
+        try {
+            return dao.acquireCoolTime(id);
+        } catch (Exception e) {
+            throw new LabelException("数据库错误");
+        }
+    }
+
+    @Override
+    public void updateCoolTime(CookTime cookTime) {
+        try {
+            dao.updateCookTime(cookTime);
         } catch (Exception e) {
             throw new LabelException("数据库错误");
         }

@@ -1,5 +1,6 @@
 package edu.nf.food.label.web;
 
+import com.github.pagehelper.PageInfo;
 import edu.nf.food.label.entity.Technology;
 import edu.nf.food.label.service.TechnologyService;
 import edu.nf.food.util.BaseController;
@@ -27,18 +28,30 @@ public class TechnologyController extends BaseController {
      * @return
      */
     @GetMapping("/list_technology")
-    public ResponseVO listTechnology() {
-        List<Technology> technologies = service.listTechnology();
-        return success(technologies);
+    public ResponseVO<PageInfo<Technology>> listTechnology(Integer pageNum, Integer pageSize) {
+        List<Technology> technologies = service.listTechnology(pageNum, pageSize);
+        PageInfo<Technology> pageInfo = new PageInfo<>(technologies);
+        return success(pageInfo);
     }
 
+    @GetMapping("/acquire_technology")
+    public ResponseVO acquireTechnology(Integer id) {
+        Technology technology = service.acquireTechnology(id);
+        return success(technology);
+    }
+
+    @PostMapping("/update_technology")
+    public ResponseVO updateTechnology(Technology technology) {
+        service.updateTechnology(technology);
+        return success("修改成功");
+    }
     /**
      * 标签：添加工艺
      *
      * @param technology
      * @return
      */
-    @PostMapping("/insert_technology")
+    @PostMapping("/add_technology")
     public ResponseVO insertTechnology(Technology technology) {
         service.insertTechnology(technology);
         return success("添加成功");

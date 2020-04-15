@@ -2,6 +2,7 @@ package edu.nf.food.label.dao;
 
 import edu.nf.food.label.entity.ReparationTime;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -11,7 +12,11 @@ import java.util.List;
  */
 @Mapper
 public interface ReparationTimeDao {
-    List<ReparationTime> listReparationTime();
+    List<ReparationTime> listReparationTime(@Param("pageNum") Integer pageNum, @Param("pageSize") Integer pageSize);
+
+    ReparationTime acquireReparationTime(Integer id);
+
+    void updateReparationTime(ReparationTime reparationTime);
 
     void addReparationTime(ReparationTime reparationTime);
 

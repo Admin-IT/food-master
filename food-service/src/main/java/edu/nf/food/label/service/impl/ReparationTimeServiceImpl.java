@@ -19,9 +19,27 @@ public class ReparationTimeServiceImpl implements ReparationTimeService {
     private ReparationTimeDao dao;
 
     @Override
-    public List<ReparationTime> listReparationTime() {
+    public List<ReparationTime> listReparationTime(Integer pageNum, Integer pageSize) {
         try {
-            return dao.listReparationTime();
+            return dao.listReparationTime(pageNum, pageSize);
+        } catch (Exception e) {
+            throw new LabelException("数据库错误");
+        }
+    }
+
+    @Override
+    public ReparationTime acquireReparationTime(Integer id) {
+        try {
+            return dao.acquireReparationTime(id);
+        } catch (Exception e) {
+            throw new LabelException("数据库错误");
+        }
+    }
+
+    @Override
+    public void updateReparationTime(ReparationTime reparationTime) {
+        try {
+            dao.updateReparationTime(reparationTime);
         } catch (Exception e) {
             throw new LabelException("数据库错误");
         }

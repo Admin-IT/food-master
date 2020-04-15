@@ -1,5 +1,6 @@
 package edu.nf.food.label.web;
 
+import com.github.pagehelper.PageInfo;
 import edu.nf.food.label.entity.Difficulty;
 import edu.nf.food.label.service.DifficultyService;
 import edu.nf.food.util.BaseController;
@@ -27,11 +28,23 @@ public class DifficultyController extends BaseController {
      * @return
      */
     @GetMapping("/list_difficulty")
-    public ResponseVO listDifficulty() {
-        List<Difficulty> list = service.listDifficulty();
-        return success(list);
+    public ResponseVO<PageInfo<Difficulty>> listDifficulty(Integer pageNum, Integer pageSize) {
+        List<Difficulty> list = service.listDifficulty(pageNum, pageSize);
+        PageInfo<Difficulty> page = new PageInfo<>(list);
+        return success(page);
     }
 
+    @GetMapping("/acquire_difficulty")
+    public ResponseVO acquireDiffculty(Integer id) {
+        Difficulty difficulty = service.acquireDifficulty(id);
+        return success(difficulty);
+    }
+
+    @PostMapping("/update_difficulty")
+    public ResponseVO updateDifficulty(Difficulty difficulty) {
+        service.updateDiffculty(difficulty);
+        return success("修改成功");
+    }
 
     /**
      * 标签：难度 添加

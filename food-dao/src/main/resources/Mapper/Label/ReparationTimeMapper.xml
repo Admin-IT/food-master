@@ -9,10 +9,16 @@
     <insert id="addReparationTime" parameterType="edu.nf.food.label.entity.ReparationTime">
         insert into menu_reparation_time(menu_reparation_time)VALUES(#{name});
     </insert>
+    <update id="updateReparationTime">
+		update menu_reparation_time set menu_reparation_time = #{name} where menu_reparation_time_id = #{id}
+    </update>
     <delete id="delReparationTime" parameterType="edu.nf.food.label.entity.ReparationTime">
         delete from menu_reparation_time  where menu_reparation_time_id = #{id}
     </delete>
     <select id="listReparationTime" resultMap="reparationTime">
         select * from  menu_reparation_time
+    </select>
+    <select id="acquireReparationTime" resultMap="reparationTime">
+                select * from menu_reparation_time where menu_reparation_time_id = #{id}
     </select>
 </mapper>

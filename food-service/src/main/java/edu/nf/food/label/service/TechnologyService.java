@@ -18,7 +18,11 @@ public interface TechnologyService {
      *
      * @return
      */
-    List<Technology> listTechnology();
+    List<Technology> listTechnology(Integer pageNum, Integer pageSize);
+
+    Technology acquireTechnology(Integer id);
+
+    void updateTechnology(Technology technology);
 
     /**
      * 添加

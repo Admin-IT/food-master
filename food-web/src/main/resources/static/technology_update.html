@@ -561,7 +561,7 @@
                             <h2>工艺签修改</h2>
                         </div>
                         <div class="content-body">
-                            <form id="f_technology_update" action="javascript:;" novalidate="novalidate">
+                            <form id="form_add" action="javascript:;" novalidate="novalidate">
                                 <div class="row">
 
                                     <div class="">
@@ -571,8 +571,8 @@
                                             <span class="desc"></span>
                                             <div class="controls">
                                                 <label>
-                                                    <input type="text" readonly class="form-control"
-                                                           name="technology_id">
+                                                    <input type="text" class="form-control"
+                                                           name="id">
                                                 </label>
                                             </div>
                                         </div>
@@ -582,14 +582,15 @@
                                             <span class="desc"></span>
                                             <div class="controls">
                                                 <label>
-                                                    <input type="text" class="form-control" name="technology_name">
+                                                    <input type="text" class="form-control" name="name">
                                                 </label>
                                             </div>
                                         </div>
 
                                     </div>
                                     <div class="col-md-1 btn-block">
-                                        <button type="submit">提交</button>
+                                        <button id="select_bt" type="button">查找</button>
+                                        <button id="success-submit" type="submit">提交</button>
                                         <button type="reset">重置</button>
                                     </div>
                                 </div>
@@ -625,6 +626,7 @@
 <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END -->
 
 <!-- CORE TEMPLATE JS - START -->
+<script src="data/technology-up.js"></script>
 <script src="js/scripts.js"></script>
 <!-- END CORE TEMPLATE JS - END -->
 

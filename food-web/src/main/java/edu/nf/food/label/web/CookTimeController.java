@@ -1,5 +1,6 @@
 package edu.nf.food.label.web;
 
+import com.github.pagehelper.PageInfo;
 import edu.nf.food.label.entity.CookTime;
 import edu.nf.food.label.service.CookTimeService;
 import edu.nf.food.util.BaseController;
@@ -22,15 +23,28 @@ public class CookTimeController extends BaseController {
     private CookTimeService service;
 
     @GetMapping("/list_cooktime")
-    public ResponseVO listCookTime() {
-        List<CookTime> list = service.listCookTime();
-        return success(list);
+    public ResponseVO<PageInfo<CookTime>> listCookTime(Integer pageNum, Integer paSize) {
+        List<CookTime> list = service.listCookTime(pageNum, paSize);
+        PageInfo<CookTime> page = new PageInfo<>(list);
+        return success(page);
+    }
+
+    @GetMapping("/acquire_cooktime")
+    public ResponseVO<CookTime> acquireCooltime(Integer id) {
+        CookTime cookTime = service.acquireCoolTime(id);
+        return success(cookTime);
+    }
+
+    @PostMapping("/update_cooktime")
+    public ResponseVO updateCooltime(CookTime cookTime) {
+        service.updateCoolTime(cookTime);
+        return success("修改成功");
     }
 
     @PostMapping("/add_cooktime")
     public ResponseVO addCookTime(CookTime cooktime) {
         service.addCookTime(cooktime);
-        return success("添加失败");
+        return success("添加成功");
     }
 
     @GetMapping("/del_cooktime")

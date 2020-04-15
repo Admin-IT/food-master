@@ -11,7 +11,11 @@ import java.util.List;
  * 口味
  */
 public interface FlavorService {
-    List<Flavor> listFlavor();
+    List<Flavor> listFlavor(Integer pageNum, Integer pageSize);
+
+    Flavor acquireFlavor(Integer id);
+
+    void updateFlavor(Flavor flavor);
 
     void addFlavor(Flavor flavor);
 

@@ -9,10 +9,16 @@
     <insert id="addNumber" parameterType="edu.nf.food.label.entity.Number">
         insert into menu_number(menu_number_name)VALUES(#{name});
     </insert>
+    <update id="updateNumber">
+        update menu_number set menu_number_name = #{name} where menu_number_id = #{id}
+    </update>
     <delete id="delNumber" parameterType="edu.nf.food.label.entity.Number">
         delete from menu_number  where menu_number_id = #{id}
     </delete>
     <select id="listNumber" resultMap="number">
         select * from  menu_number
+    </select>
+    <select id="acquireNumber" resultMap="number">
+        select * from menu_number where menu_number_id = #{id}
     </select>
 </mapper>

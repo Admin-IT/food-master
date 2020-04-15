@@ -20,9 +20,27 @@ public class NumberServiceImpl implements NumberService {
     private NumberDao dao;
 
     @Override
-    public List<Number> listNumber() {
+    public List<Number> listNumber(Integer pageNum, Integer pageSize) {
         try {
-            return dao.listNumber();
+            return dao.listNumber(pageNum, pageSize);
+        } catch (Exception e) {
+            throw new LabelException("数据库错误");
+        }
+    }
+
+    @Override
+    public Number acquireNumber(Integer id) {
+        try {
+            return dao.acquireNumber(id);
+        } catch (Exception e) {
+            throw new LabelException("数据库错误");
+        }
+    }
+
+    @Override
+    public void updateNumber(Number number) {
+        try {
+            dao.updateNumber(number);
         } catch (Exception e) {
             throw new LabelException("数据库错误");
         }

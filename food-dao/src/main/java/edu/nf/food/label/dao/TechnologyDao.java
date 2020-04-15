@@ -2,6 +2,7 @@ package edu.nf.food.label.dao;
 
 import edu.nf.food.label.entity.Technology;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -12,7 +13,11 @@ import java.util.List;
  */
 @Mapper
 public interface TechnologyDao {
-    List<Technology> listTechnology();
+    List<Technology> listTechnology(@Param("pageNum") Integer pageNum, @Param("pageSize") Integer pageSize);
+
+    Technology acquireTechnology(Integer id);
+
+    void updateTechnology(Technology technology);
 
     void insertTechnology(Technology technology);
 

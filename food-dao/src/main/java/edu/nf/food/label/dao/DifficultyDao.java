@@ -2,6 +2,7 @@ package edu.nf.food.label.dao;
 
 import edu.nf.food.label.entity.Difficulty;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -12,7 +13,11 @@ import java.util.List;
  */
 @Mapper
 public interface DifficultyDao {
-    List<Difficulty> listDiffculty();
+    List<Difficulty> listDiffculty(@Param("pageNum") Integer pageNum, @Param("pageSize") Integer pageSize);
+
+    Difficulty acquireDiffculty(Integer id);
+
+    void updateDiffculty(Difficulty difficulty);
 
     void addDiffculty(Difficulty difficulty);
 

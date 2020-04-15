@@ -12,6 +12,10 @@
     <insert id="addFlaver" parameterType="edu.nf.food.label.entity.Flavor">
         insert into menu_flavor(menu_flavor_name)VALUES(#{name});
     </insert>
+    <!--更新-->
+    <update id="updateFlaver">
+        update menu_flavor set menu_flavor_name = #{name} where menu_flavor_id = #{id}
+    </update>
     <!--删除-->
     <delete id="delFlaver" parameterType="edu.nf.food.label.entity.Flavor">
         delete from menu_flavor  where menu_flavor_id = #{id}
@@ -19,6 +23,9 @@
     <!--查询-->
     <select id="listFlaver" resultMap="flavor">
         select * from  menu_flavor
+    </select>
+    <select id="acquireFlaver" resultMap="flavor">
+        select * from menu_flavor where menu_flavor_id = #{id}
     </select>
 
 
