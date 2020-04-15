@@ -20,9 +20,27 @@ public class FlavorServiceImpl implements FlavorService {
     private FlavorDao dao;
 
     @Override
-    public List<Flavor> listFlavor() {
+    public List<Flavor> listFlavor(Integer pageNum, Integer pageSize) {
         try {
-            return dao.listFlaver();
+            return dao.listFlaver(pageNum, pageSize);
+        } catch (Exception e) {
+            throw new LabelException("数据库错误");
+        }
+    }
+
+    @Override
+    public Flavor acquireFlavor(Integer id) {
+        try {
+            return dao.acquireFlaver(id);
+        } catch (Exception e) {
+            throw new LabelException("数据库错误");
+        }
+    }
+
+    @Override
+    public void updateFlavor(Flavor flavor) {
+        try {
+            dao.updateFlaver(flavor);
         } catch (Exception e) {
             throw new LabelException("数据库错误");
         }

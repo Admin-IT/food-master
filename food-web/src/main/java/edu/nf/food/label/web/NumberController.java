@@ -1,9 +1,11 @@
 package edu.nf.food.label.web;
 
+import com.github.pagehelper.PageInfo;
 import edu.nf.food.label.entity.Number;
 import edu.nf.food.label.service.NumberService;
 import edu.nf.food.util.BaseController;
 import edu.nf.food.vo.ResponseVO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,7 +19,7 @@ import java.util.List;
  */
 @RestController
 public class NumberController extends BaseController {
-
+    @Autowired
     private NumberService service;
 
     /**
@@ -26,9 +28,22 @@ public class NumberController extends BaseController {
      * @return
      */
     @GetMapping("/list_number")
-    public ResponseVO listNumber() {
-        List<Number> list = service.listNumber();
-        return success(list);
+    public ResponseVO<PageInfo<Number>> listNumber(Integer pageNum, Integer pageSize) {
+        List<Number> list = service.listNumber(pageNum, pageSize);
+        PageInfo<Number> page = new PageInfo<>(list);
+        return success(page);
+    }
+
+    @GetMapping("/acquire_number")
+    public ResponseVO acquireNumber(Integer id) {
+        Number number = service.acquireNumber(id);
+        return success(number);
+    }
+
+    @PostMapping("/update_number")
+    public ResponseVO updateNumber(Number number) {
+        service.updateNumber(number);
+        return success("修改成功");
     }
 
     /**

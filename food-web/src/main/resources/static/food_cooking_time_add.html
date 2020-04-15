@@ -305,7 +305,7 @@
                     </ul>
                 </li>
 
-                <li class="">
+                <li class="open">
                     <a href="javascript:;">
                         <i>
                             <svg t="1585705560609" class="icon" viewBox="0 0 1024 1024" version="1.1"
@@ -374,7 +374,7 @@
                             </ul>
                         </li>
 
-                        <li class="open">
+                        <li class="">
                             <a href="javascript:;">
                                 <i class="fa fa-adn"></i>
                                 <span class="title">难度签</span>
@@ -526,16 +526,11 @@
                                 <span class="arrow"></span>
                             </a>
                         </li>
-
                     </ul>
                 </li>
-
             </ul>
-
         </div>
         <!-- MAIN MENU - END -->
-
-
     </div>
     <!--  SIDEBAR - END -->
     <!-- START CONTENT -->
@@ -561,35 +556,24 @@
                             <h2>烹饪时间签添加</h2>
                         </div>
                         <div class="content-body">
-                            <form id="f_food_cooking_time_add" action="javascript:;" novalidate="novalidate">
+                            <form id="form_add" action="javascript:;" novalidate="novalidate">
                                 <div class="row">
 
                                     <div class="">
-
-                                        <div class="form-group col-xs-3">
-                                            <label class="form-label">烹饪时间ID</label>
-                                            <span class="desc"></span>
-                                            <div class="controls">
-                                                <label>
-                                                    <input type="text" class="form-control" name="food_cooking_time_id">
-                                                </label>
-                                            </div>
-                                        </div>
 
                                         <div class="form-group col-xs-3">
                                             <label class="form-label">烹饪时间级别</label>
                                             <span class="desc"></span>
                                             <div class="controls">
                                                 <label>
-                                                    <input type="text" class="form-control"
-                                                           name="food_cooking_time_name">
+                                                    <input type="text" class="form-control" name="name">
                                                 </label>
                                             </div>
                                         </div>
 
                                     </div>
                                     <div class="col-md-1 btn-block">
-                                        <button type="submit">提交</button>
+                                        <button id="success-submit" type="submit">提交</button>
                                         <button type="reset">重置</button>
                                     </div>
                                 </div>
@@ -598,7 +582,6 @@
                     </header>
                 </section>
             </div>
-
         </div>
     </section>
     <!-- END CONTENT -->
@@ -625,6 +608,7 @@
 <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END -->
 
 <!-- CORE TEMPLATE JS - START -->
+<script src="data/cookingtime-add.js"></script>
 <script src="js/scripts.js"></script>
 <!-- END CORE TEMPLATE JS - END -->
 

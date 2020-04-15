@@ -9,11 +9,17 @@
     <insert id="addDiffculty" parameterType="edu.nf.food.label.entity.Difficulty">
       insert into menu_difficulty(menu_difficulty_name)VALUES(#{name});
     </insert>
+    <update id="updateDiffculty">
+        update menu_difficulty set menu_difficulty_name = #{name} where menu_difficulty_id = #{id}
+    </update>
     <delete id="delDiffculty" parameterType="edu.nf.food.label.entity.Difficulty">
       delete from menu_difficulty  where menu_difficulty_id = #{id}
     </delete>
     <select id="listDiffculty" resultMap="difficulty">
         select * from  menu_difficulty
+    </select>
+    <select id="acquireDiffculty" resultMap="difficulty">
+        select * from menu_difficulty where menu_difficulty_id = #{id}
     </select>
 
 

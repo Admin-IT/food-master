@@ -9,7 +9,11 @@ import java.util.List;
  * @date 2020/3/20
  */
 public interface CookTimeService {
-    List<CookTime> listCookTime();
+    List<CookTime> listCookTime(Integer pageNum, Integer pageSize);
+
+    CookTime acquireCoolTime(Integer id);
+
+    void updateCoolTime(CookTime cookTime);
 
     void addCookTime(CookTime cookTime);
 

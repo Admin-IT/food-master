@@ -10,24 +10,38 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * @author admin
- * @date 2020/3/11
- * <p>
- * 口艺 增删改查
+ * @author TracyMcGrady
+ * @date 2020-04-11
  */
 @Service
-public class TechnologyServiceImpl implements TechnologyService {
-
+public class TechnologyServiceImpl2 implements TechnologyService {
 
     @Autowired
     private TechnologyDao technologyDao;
 
     @Override
-    public List<Technology> listTechnology() {
-
+    public List<Technology> listTechnology(Integer pageNum, Integer pageSize) {
 
         try {
-            return technologyDao.listTechnology();
+            return technologyDao.listTechnology(pageNum, pageSize);
+        } catch (Exception e) {
+            throw new LabelException("数据库错误");
+        }
+    }
+
+    @Override
+    public Technology acquireTechnology(Integer id) {
+        try {
+            return technologyDao.acquireTechnology(id);
+        } catch (Exception e) {
+            throw new LabelException("数据库错误");
+        }
+    }
+
+    @Override
+    public void updateTechnology(Technology technology) {
+        try {
+            technologyDao.updateTechnology(technology);
         } catch (Exception e) {
             throw new LabelException("数据库错误");
         }

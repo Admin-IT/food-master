@@ -2,6 +2,7 @@ package edu.nf.food.label.dao;
 
 import edu.nf.food.label.entity.Flavor;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -12,7 +13,11 @@ import java.util.List;
  */
 @Mapper
 public interface FlavorDao {
-    List<Flavor> listFlaver();
+    List<Flavor> listFlaver(@Param("pageNum") Integer pageNum, @Param("pageSize") Integer pageSize);
+
+    Flavor acquireFlaver(Integer id);
+
+    void updateFlaver(Flavor flavor);
 
     void addFlaver(Flavor flavor);
 

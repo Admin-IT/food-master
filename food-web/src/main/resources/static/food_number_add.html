@@ -561,34 +561,24 @@
                             <h2>人数签添加</h2>
                         </div>
                         <div class="content-body">
-                            <form id="f_food_number_add" action="javascript:;" novalidate="novalidate">
+                            <form id="form_add" action="javascript:;" novalidate="novalidate">
                                 <div class="row">
 
                                     <div class="">
-
-                                        <div class="form-group col-xs-3">
-                                            <label class="form-label">人数ID</label>
-                                            <span class="desc"></span>
-                                            <div class="controls">
-                                                <label>
-                                                    <input type="text" class="form-control" name="food_number_id">
-                                                </label>
-                                            </div>
-                                        </div>
 
                                         <div class="form-group col-xs-3">
                                             <label class="form-label">人数级别</label>
                                             <span class="desc"></span>
                                             <div class="controls">
                                                 <label>
-                                                    <input type="text" class="form-control" name="food_number_name">
+                                                    <input type="text" class="form-control" name="name">
                                                 </label>
                                             </div>
                                         </div>
 
                                     </div>
                                     <div class="col-md-1 btn-block">
-                                        <button type="submit">提交</button>
+                                        <button id="success-submit" type="submit">提交</button>
                                         <button type="reset">重置</button>
                                     </div>
                                 </div>
@@ -624,6 +614,7 @@
 <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END -->
 
 <!-- CORE TEMPLATE JS - START -->
+<script src="data/number-add.js"></script>
 <script src="js/scripts.js"></script>
 <!-- END CORE TEMPLATE JS - END -->
 

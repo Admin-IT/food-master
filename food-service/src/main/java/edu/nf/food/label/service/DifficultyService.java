@@ -11,7 +11,11 @@ import java.util.List;
  * 难度
  */
 public interface DifficultyService {
-    List<Difficulty> listDifficulty();
+    List<Difficulty> listDifficulty(Integer pageNum, Integer pageSize);
+
+    Difficulty acquireDifficulty(Integer id);
+
+    void updateDiffculty(Difficulty difficulty);
 
     void addDiffculty(Difficulty difficulty);
 

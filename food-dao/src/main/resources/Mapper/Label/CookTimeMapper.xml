@@ -9,11 +9,17 @@
     <insert id="addCookTime" parameterType="edu.nf.food.label.entity.CookTime">
         insert into menu_cooking_time(menu_cooking_time)VALUES(#{name});
     </insert>
+    <update id="updateCookTime">
+        update menu_cooking_time set menu_cooking_time = #{name} where menu_cooking_time_id = #{id}
+    </update>
     <delete id="delCookTime" parameterType="edu.nf.food.label.entity.CookTime">
         delete from menu_cooking_time  where menu_cooking_time_id = #{id}
     </delete>
     <select id="listCookTime" resultMap="cooktime">
         select * from  menu_cooking_time
+    </select>
+    <select id="acquireCoolTime" resultMap="cooktime">
+        select * from  menu_cooking_time where menu_cooking_time_id = #{id}
     </select>
 
 

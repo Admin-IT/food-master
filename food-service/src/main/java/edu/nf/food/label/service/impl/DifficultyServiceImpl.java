@@ -21,9 +21,27 @@ public class DifficultyServiceImpl implements DifficultyService {
     private DifficultyDao dao;
 
     @Override
-    public List<Difficulty> listDifficulty() {
+    public List<Difficulty> listDifficulty(Integer pageNum, Integer pageSize) {
         try {
-            return dao.listDiffculty();
+            return dao.listDiffculty(pageNum, pageSize);
+        } catch (Exception e) {
+            throw new LabelException("数据库错误");
+        }
+    }
+
+    @Override
+    public Difficulty acquireDifficulty(Integer id) {
+        try {
+            return dao.acquireDiffculty(id);
+        } catch (Exception e) {
+            throw new LabelException("数据库错误");
+        }
+    }
+
+    @Override
+    public void updateDiffculty(Difficulty difficulty) {
+        try {
+            dao.updateDiffculty(difficulty);
         } catch (Exception e) {
             throw new LabelException("数据库错误");
         }

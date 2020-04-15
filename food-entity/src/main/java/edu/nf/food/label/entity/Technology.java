@@ -10,6 +10,6 @@ import lombok.Data;
 @Data
 public class Technology {
 
-    private Integer technologyId;
-    private String technologyName;
+    private Integer id;
+    private String name;
 }

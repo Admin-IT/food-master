@@ -352,7 +352,7 @@
                                     <a class="" href="technology_cancel.html">删除</a>
                                 </li>
                             </ul>
-                        <li class="open">
+                        <li class="">
                             <a href="javascript:;">
                                 <i class="fa fa-adn"></i>
                                 <span class="title">口味签</span>
@@ -561,7 +561,7 @@
                             <h2>难度签修改</h2>
                         </div>
                         <div class="content-body">
-                            <form id="f_user_add" action="javascript:;" novalidate="novalidate">
+                            <form id="form_add" action="javascript:;" novalidate="novalidate">
                                 <div class="row">
 
                                     <div class="">
@@ -571,8 +571,7 @@
                                             <span class="desc"></span>
                                             <div class="controls">
                                                 <label>
-                                                    <input type="text" readonly class="form-control"
-                                                           name="food_difficulty_id">
+                                                    <input type="text" class="form-control" name="id">
                                                 </label>
                                             </div>
                                         </div>
@@ -582,14 +581,15 @@
                                             <span class="desc"></span>
                                             <div class="controls">
                                                 <label>
-                                                    <input type="text" class="form-control" name="food_difficulty_name">
+                                                    <input type="text" class="form-control" name="name">
                                                 </label>
                                             </div>
                                         </div>
 
                                     </div>
                                     <div class="col-md-1 btn-block">
-                                        <button type="submit">提交</button>
+                                        <button id="select_bt" type="button">查找</button>
+                                        <button id="success-submit" type="submit">提交</button>
                                         <button type="reset">重置</button>
                                     </div>
                                 </div>
@@ -625,6 +625,7 @@
 <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END -->
 
 <!-- CORE TEMPLATE JS - START -->
+<script src="data/diffculty-up.js"></script>
 <script src="js/scripts.js"></script>
 <!-- END CORE TEMPLATE JS - END -->
 
