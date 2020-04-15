@@ -25,6 +25,15 @@ public class VideoStepServiceImpl implements VideoStepService {
     }
 
     @Override
+    public void addStep(VideoStep videoStep) {
+        try {
+            dao.addStep(videoStep);
+        } catch (Exception e) {
+            throw new VideoException("添加异常" + e);
+        }
+    }
+
+    @Override
     public void updateStep(VideoStep videoStep) {
         try {
             dao.updateStep(videoStep);

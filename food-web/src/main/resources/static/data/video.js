@@ -108,8 +108,9 @@ $(function () {
                 }
             }
         })
-    })
+    });
 });
+
 
 //渲染表格
 function addTable(pageInfo) {

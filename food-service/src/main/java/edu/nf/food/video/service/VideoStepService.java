@@ -8,5 +8,7 @@ import java.util.List;
 public interface VideoStepService {
     List<VideoStep> getStep(Integer videoId);
 
+    void addStep(VideoStep videoStep);
+
     void updateStep(VideoStep videoStep);
 }

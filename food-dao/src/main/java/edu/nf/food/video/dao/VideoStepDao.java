@@ -9,5 +9,7 @@ import java.util.List;
 public interface VideoStepDao {
     List<VideoStep> listStep(Integer videoId);
 
+    void addStep(VideoStep videoStep);
+
     void updateStep(VideoStep videoStep);
 }

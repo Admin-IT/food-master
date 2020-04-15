@@ -31,5 +31,9 @@
         set menu_video_step_method = #{method}
         where menu_video_step_id = #{videoId}
     </update>
+    <insert id="addStep" parameterType="edu.nf.food.video.entity.VideoStep">
+        insert into menu_food_video_step(menu_video_step_id,menu_video_step_method)
+        values (#{videoId},#{method})
+    </insert>
 
 </mapper>
