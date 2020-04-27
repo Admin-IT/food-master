@@ -1,12 +1,13 @@
 package edu.nf.food.user.service.impl;
 
+import edu.nf.food.user.service.UserService;
+import edu.nf.food.exception.UserException;
 import edu.nf.food.user.dao.UserDao;
 import edu.nf.food.user.entity.User;
-import edu.nf.food.user.service.UserService;
-import edu.nf.food.user.service.exception.UserException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.nio.file.attribute.UserPrincipalNotFoundException;
 import java.util.List;
 
 /**
@@ -50,15 +51,17 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+
     /**
      * 更新用户
-     * @param user
+     *
+     * @param userId
      */
     @Override
-    public void upUserById(User user) {
+    public void upUserById(Integer userId) {
         try {
-            userDao.upUserById(user);
-        }catch (Exception e){
+            userDao.upUserById(userId);
+        } catch (Exception e) {
             throw new UserException("更新用户异常：" + e);
         }
     }
@@ -88,5 +91,70 @@ public class UserServiceImpl implements UserService {
             throw new UserException("账户或密码错误");
         }
         return us;
+    }
+
+    /**
+     * 查询登录用户个人信息
+     *
+     * @param userId
+     * @return
+     */
+    @Override
+    public User allUserMess(Integer userId) {
+
+        User user = userDao.allUserMess(userId);
+        return user;
+    }
+
+    /**
+     * 修改用户基础信息
+     *
+     * @param user
+     */
+    @Override
+    public void upUser(User user) {
+        try {
+            userDao.upUser(user);
+        } catch (Exception e) {
+            throw new UserException("修改用户异常，请联系专业人士进行处理！" + e.getMessage());
+        }
+    }
+
+    /**
+     * 修改用户密码
+     *
+     * @param user
+     */
+    @Override
+    public void upPass(User user) {
+        try {
+            userDao.upPass(user);
+        } catch (Exception e) {
+            throw new UserException("密码修改异常！");
+        }
+    }
+
+    @Override
+    public void upImage(User user) {
+        try {
+            userDao.upImage(user);
+        } catch (Exception e) {
+            throw new UserException("修改异常 ：" + e);
+        }
+    }
+
+    @Override
+    public void addPhone(User user) {
+        try {
+            userDao.addPhone(user);
+        } catch (Exception e) {
+            throw new UserException("添加失败: " + e);
+        }
+    }
+
+    @Override
+    public User phoneLogin(String phone) {
+        User user = userDao.phoneLogin(phone);
+        return user;
     }
 }

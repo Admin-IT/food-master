@@ -388,7 +388,7 @@
 .useredit_ul dl dd.dd2 {
     float: left;
     width: 300px;
-    height: 40px;
+    /*height: 40px;*/
     float: left;
     line-height: 40px;
 }

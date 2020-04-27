@@ -1,4 +1,4 @@
-package edu.nf.food.user.service.exception;
+package edu.nf.food.exception;
 
 /**
  * @Author ethan

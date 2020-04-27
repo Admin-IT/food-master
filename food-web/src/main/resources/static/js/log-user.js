@@ -1,4 +1,5 @@
 $(function () {
+    var time;
 
     $("#nl_gozc").click(function () {
         if ($(this).attr("opened") == 0) {
@@ -15,3 +16,6 @@ $(function () {
     });
 
 });
+
+
+

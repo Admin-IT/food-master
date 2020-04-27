@@ -30,7 +30,7 @@
         delete from menu_user where menu_user_id = #{userId}
     </delete>
 
-    <update id="upUserById" parameterType="edu.nf.food.user.entity.User">
+    <update id="upUserById" parameterType="integer">
         update menu_user
         set
          menu_user_name = #{userName},
@@ -61,5 +61,47 @@
     <select id="loginUser" parameterType="edu.nf.food.user.entity.User" resultMap="userMap">
        select * from menu_user  where menu_user_email=#{userEmail}
     </select>
+
+    <select id="allUserMess" resultMap="userMap" parameterType="integer">
+        select menu_user_id, menu_user_name, menu_user_sex, menu_user_birthday, menu_user_hometown,
+         menu_user_location, menu_user_occupation, menu_user_autograph, menu_user_email, menu_user_tel,
+          menu_user_fans, menu_user_follow, menu_user_image
+        from menu_user where menu_user_id = #{userId}
+    </select>
+
+    <update id="upUser" parameterType="edu.nf.food.user.entity.User">
+        update menu_user
+        set
+         menu_user_name = #{userName},
+         menu_user_sex = #{userSex},
+         menu_user_birthday = #{userBirthday},
+         menu_user_hometown = #{userHometown},
+         menu_user_location = #{userLocation},
+         menu_user_occupation = #{userOccupation},
+         menu_user_autograph = #{userAutograph}
+         where menu_user_id = #{userId}
+    </update>
+
+    <update id="upPass" parameterType="edu.nf.food.user.entity.User">
+        update menu_user set menu_user_password = #{userPass} where menu_user_id = #{userId}
+    </update>
+
+    <update id="upImage" parameterType="edu.nf.food.user.entity.User">
+        update menu_user set menu_user_image = #{userImage} where menu_user_id = #{userId}
+    </update>
+
+    <select id="phoneLogin" parameterType="string" resultMap="userMap">
+       select * from menu_user  where menu_user_tel=#{userTel}
+    </select>
+
+    <insert id="addPhone" parameterType="edu.nf.food.user.entity.User">
+        insert into menu_user
+         (menu_user_name, menu_user_sex, menu_user_birthday, menu_user_hometown, menu_user_location,
+         menu_user_occupation, menu_user_autograph, menu_user_email, menu_user_tel, menu_user_fans,
+         menu_user_follow, menu_user_image,menu_user_password)
+        values
+         (#{userName}, #{userSex}, #{userBirthday}, #{userHometown}, #{userLocation}, #{userOccupation},
+         #{userAutograph}, #{userEmail}, #{userTel}, #{userFans}, #{userFollow}, #{userImage},#{userPass})
+    </insert>
 </mapper>
 

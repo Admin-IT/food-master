@@ -12,19 +12,19 @@ import java.util.Date;
 @Data
 public class User {
     private Integer userId;
-    private String userName;
-    private Boolean userSex;
-    private Date userBirthday;
-    private String  userHometown;
-    private String userLocation;
-    private String userOccupation;
-    private String userAutograph;
-    private String userEmail;
-    private String userTel;
-    private String userFans;
-    private String userFollow;
-    private String userImage;
-    private String userPass;
+    private String userName;//姓名
+    private Integer userSex;//性别
+    private Date userBirthday;//生日
+    private String userHometown;//家乡
+    private String userLocation;//城市
+    private String userOccupation;//职业
+    private String userAutograph;//个性签名
+    private String userEmail;//邮箱
+    private String userTel;//电话
+    private String userFans;//粉丝
+    private String userFollow;//关注
+    private String userImage;//头像
+    private String userPass;//密码
 
 
     public Integer getUserId() {
@@ -43,11 +43,11 @@ public class User {
         this.userName = userName;
     }
 
-    public Boolean getUserSex() {
+    public Integer getUserSex() {
         return userSex;
     }
 
-    public void setUserSex(Boolean userSex) {
+    public void setUserSex(Integer userSex) {
         this.userSex = userSex;
     }
 

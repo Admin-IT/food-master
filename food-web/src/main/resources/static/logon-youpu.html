@@ -73,7 +73,7 @@
                 <!--                手机号登录-->
                 <div class="n1_loginbox_w1" id="n1_loginbox_w1">
                     <div class="login_false_tip"></div>
-                    <form action="">
+                    <form id="phone_login">
                         <div class="n1_loginitem">
                             <input id="login_mobile" type="text" name="username1" class="text" placeholder="请输入手机号">
                         </div>
@@ -81,10 +81,10 @@
                             <input type="hidden" name="login_type" value="1">
                             <input id="login_code" type="text" class="text forcheck pyzm_forcheck yzm" name="number"
                                    placeholder="请输入验证码">
-                            <a href="" class="phone_yzmbtn" id="phone_yzmbtn">获取验证码</a>
+                            <a class="phone_yzmbtn" id="phone_yzmbtn">获取验证码</a>
                         </div>
                         <div class="n1_loginitem" style="text-align: center;">
-                            <input type="submit" class="submit" value="登 录">
+                            <input type="button" class="submit" value="登 录">
                         </div>
                     </form>
                 </div>
@@ -113,6 +113,7 @@
                 </div>
             </div>
         </div>
+        <!--注册-->
         <div class="n1_more_zc" id="nl_more_zc" style="display: none;">
             <div class="n1_loginbox_www">
                 <div class="n1_login_ww">
@@ -153,72 +154,110 @@
 <script type="text/javascript">
     $(function () {
 
+        //发送手机验证码
+        $('#phone_yzmbtn').on('click', function () {
+            var code = $('#login_mobile').val();
+            $.ajax({
+                url: './send_phone?phone=' + code,
+                type: 'get',
+                anync: false,
+                cache: false,
+                dataType: "json",
+                success: function (result) {
+                    if (result != null) {
+                        alert("发送成功");
+                        $('#phone_yzmbtn').text(data.message);
+                    } else {
+                        alert("获取验证码失败！");
+                    }
+                }
+            })
+        })
 
-            $('#phone_yzmbtn1').on('click', function () {
-                var email = $("#reg_email").val();
+        //发送邮箱验证码
+        $('#phone_yzmbtn1').on('click', function () {
+            var email = $("#reg_email").val();
 
-                $.ajax({
-                    url: "./send_email?email=" + email,
-                    type: "get",
-                    anync: false,
-                    cache: false,
-
-                    dataType: "json",
-                    success: function (data) {
-                        if (data != null) {
+            $.ajax({
+                url: "./send_email?email=" + email,
+                type: "get",
+                anync: false,
+                cache: false,
+                dataType: "json",
+                success: function (data) {
+                    if (data != null) {
                             $('#phone_yzmbtn1').text(data.message);
-                        } else {
-                            alert("获取验证码失败！");
-                        }
-
+                    } else {
+                        alert("获取验证码失败！");
                     }
 
-
-                });
+                }
 
             });
 
-            $('#f1 :button').on('click', function () {
-                var name = $("input[name=userEmail]").val();
-                var pass = $("input[name=userPass]").val();
+        });
 
-                $.ajax({
-                    url: './login_user?userEmail=' + name + '&userPass=' + pass,
-                    // data : $("#f1").serialize(),
-                    type: 'get',
-                    success: function (result) {
+        //邮箱账号登录
+        $('#f1 :button').on('click', function () {
 
-                        if (result.code == 200) {
-                            window.location.href = "index.html";//登陆成功跳转到管理界面
-                        } else {
-                            alert(result.message)
-                        }
+            var name = $("input[name=userEmail]").val();
+            var pass = $("input[name=userPass]").val();
+            $.ajax({
+                url: './login_user?userEmail=' + name + '&userPass=' + pass,
+                // data : $("#f1").serialize(),
+                type: 'get',
+                success: function (result) {
+                    if (result.code == 200) {
+                        window.location.href = "index.html";//登陆成功跳转到管理界面
+                        // localStorage.info = name;
+                    } else {
+                        alert(result.message)
                     }
-                })
-            });
+                }
+            })
+        });
 
-            $('#reg_btn').on('click', function () {
-                reg_pass
-                var email = $("#reg_email").val();
-                var yzm = $("#reg_code").val();
-                var password = $("#reg_pass").val();
+        //邮箱注册账号
+        $('#reg_btn').on('click', function () {
+            var email = $("#reg_email").val();
+            var yzm = $("#reg_code").val();
+            var password = $("#reg_pass").val();
 
-                $.ajax({
-                    url: './add_user?userEmail=' + email + '&userPass=' + password + '&yzm=' + yzm,
-                    // data : $("#f1").serialize(),
-                    type: 'get',
-                    success: function (result) {
+            $.ajax({
+                url: './add_user?userEmail=' + email + '&userPass=' + password + '&yzm=' + yzm,
+                type: 'get',
+                success: function (result) {
 
-                        if (result.code == 200) {
-                            window.location.href = "logon-youpu.html";//登陆成功跳转到管理界面
-                        } else {
-                            alert(result.message)
-                        }
+                    if (result.code == 200) {
+                        window.location.href = "logon-youpu.html";//登陆成功跳转到管理界面
+                    } else {
+                        alert(result.message)
                     }
-                })
-            });
-        }
-    )
+                }
+            })
+        });
+
+        //手机账号登录
+        $('#phone_login :button').on('click', function () {
+            alert('开始检查手机账号登录');
+            var phoneNum = $('#login_mobile').val();
+            var phoneEmail = $('#login_code').val();
+            alert(phoneEmail + phoneNum);
+            $.ajax({
+                url: './phone_login',
+                type: 'get',
+                data: {'phoneNum': phoneNum, 'phoneEmail': phoneEmail},
+                success: function (result) {
+                    if (result.code == 500) {
+                        alert(result.data.message);
+                    } else {
+                        alert("登录成功！");
+                        window.location.href = 'index.html';
+                    }
+                }
+            })
+        })
+    })
 </script>
 </body>
 </html>

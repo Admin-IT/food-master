@@ -1,9 +1,26 @@
 html{width:100%;background:#fff url("../img/jpg/login_back.jpg") center top no-repeat;background-size:1920px auto;padding-top: 0px;}
 body{font-family: PingFang SC,arial,sans-serif;}
 .login_main{width:100%;background:#fff url("../img/jpg/login_back.jpg") center top no-repeat;background-size:1920px auto;padding-top: 0px;}
-.login_nav{height:108px;width:100%;border-bottom:1px solid rgba(255,255,255,0.08);}
-.login_nav .logo{height:108px;display:block;background:url("../img/png/logo.png") center no-repeat;background-size:75% auto;width:200px;}
-.login_navw{width:1200px;height:108px;margin:0px auto;position:relative;}
+.login_nav {
+    height: 108px;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.login_nav .logo {
+    height: 108px;
+    display: block;
+    background: url("../img/logo3.png") center no-repeat;
+    background-size: 75% auto;
+    width: 200px;
+}
+
+.login_navw {
+    width: 1200px;
+    height: 108px;
+    margin: 0px auto;
+    position: relative;
+}
 .login_navw ul{position:absolute;right:0px;top:0px;font-size:0px;}
 .login_navw ul li{display:inline-block;vertical-align:top;}
 .login_navw ul li a{padding:0px 20px;color:#fff;font-size:18px;line-height:108px;display:inline-block;vertical-align:top;opacity: 0.8;}
